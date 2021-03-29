@@ -84,6 +84,7 @@
               <li class="{{ Request::is('admin/products/attributes/display') ? 'active' : '' }}  {{ Request::is('admin/products/attributes/add') ? 'active' : '' }}  {{ Request::is('admin/products/attributes/*') ? 'active' : '' }}" ><a href="{{ URL::to('admin/products/attributes/display' )}}"><i class="fa fa-circle-o"></i> {{ trans('labels.products_attributes') }}</a></li> 
               <li class="{{ Request::is('admin/units') ? 'active' : '' }} {{ Request::is('admin/addunit') ? 'active' : '' }} {{ Request::is('admin/editunit/*') ? 'active' : '' }} "><a href="{{ URL::to('admin/units')}}"><i class="fa fa-circle-o"></i> {{ trans('labels.link_units') }}</a></li>
               <li class="{{ Request::is('admin/products/display') ? 'active' : '' }} {{ Request::is('admin/products/add') ? 'active' : '' }} {{ Request::is('admin/products/edit/*') ? 'active' : '' }} {{ Request::is('admin/products/attributes/add/*') ? 'active' : '' }} {{ Request::is('admin/addinventory/*') ? 'active' : '' }} {{ Request::is('admin/addproductimages/*') ? 'active' : '' }}"><a href="{{ URL::to('admin/products/display')}}"><i class="fa fa-circle-o"></i> {{ trans('labels.link_all_products') }}</a></li>
+              <li class="{{ Request::is('admin/products/inventory/display') ? 'active' : '' }}"><a href="{{ URL::to('admin/products/inventory/display')}}"><i class="fa fa-circle-o"></i> {{ trans('labels.inventory') }}</a></li>
               @if($result['commonContent']['setting']['Inventory'] == '1')
                 <li class="{{ Request::is('admin/products/inventory/display') ? 'active' : '' }}"><a href="{{ URL::to('admin/products/inventory/display')}}"><i class="fa fa-circle-o"></i> {{ trans('labels.inventory') }}</a></li>
               @endif
@@ -456,11 +457,12 @@
         <?php 
         }
         ?>
-        <?php
+        <!--------create middlewares -------->
+      <!--  </?php
           if($result['commonContent']['roles']!= null and $result['commonContent']['roles']->edit_management == 1){
         ?>
 
-          <!--------create middlewares -------->
+        
         <li class="treeview {{ Request::is('admin/managements/merge') ? 'active' : '' }} {{ Request::is('admin/managements/updater') ? 'active' : '' }} {{ Request::is('admin/managements/restore') ? 'active' : '' }} {{ Request::is('admin/managements/backup') ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-gears" aria-hidden="true"></i>
@@ -474,13 +476,16 @@
               <li class="{{ Request::is('admin/managements/updater') ? 'active' : '' }}"><a href="{{ URL::to('admin/managements/updater')}}"><i class="fa fa-circle-o"></i> {{ trans('labels.link_updater') }}</a></li>
           </ul>
         </li>
-        <?php } ?>
+        </?php } ?>
 
-        <?php
+        -->
+         <!--------create middlewares -------->
+<!--
+        </?php
           if($result['commonContent']['roles']!= null and $result['commonContent']['roles']->edit_management == 1){
         ?>
 
-          <!--------create middlewares -------->
+         
         <li class="treeview  {{ Request::is('admin/managements/restore') ? 'active' : '' }} {{ Request::is('admin/managements/backup') ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-gears" aria-hidden="true"></i>
@@ -493,14 +498,14 @@
            
           </ul>
         </li>
-        <?php } ?>
-
+        </?php } ?>
+              -->
         <!-- cache clear -->
-        <li class="treeview {{ Request::is('admin/dashboard') ? 'active' : '' }}">
+      <!--  <li class="treeview {{ Request::is('admin/dashboard') ? 'active' : '' }}">
           <a href="javascript:void(0)" class="clear-cache">
           <i class="fa fa-eraser" aria-hidden="true"></i> <span>{{ trans('labels.Clear Cache') }}</span>
           </a>
-        </li>
+        </li>-->
 
       </ul>
     </section>
